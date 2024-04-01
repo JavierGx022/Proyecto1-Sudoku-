@@ -33,7 +33,7 @@ class SodokuGame {
         }
 
         // Establecer el número de celdas a eliminar del tablero
-        val numberOfCellsToRemove = 2 // Por ejemplo, puedes ajustar este número según lo desees
+        val numberOfCellsToRemove = 50 // Por ejemplo, puedes ajustar este número según lo desees
 
         // Eliminar algunos números para crear el tablero inicial del juego
         val random = Random

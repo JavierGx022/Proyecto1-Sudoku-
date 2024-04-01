@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mi_color_de_fondo">
+    android:background="#000000">
 
 
     <TextView
@@ -11,30 +11,30 @@
         android:layout_width="match_parent"
         android:layout_height="41dp"
         android:layout_margin="40dp"
-        android:background="@color/white"
+        android:background="#FFFFFF"
         android:text="Sudoku"
         android:textSize="30sp"
         android:textAlignment="center"
-        android:textColor="@color/titulo"
+        android:textColor="#000000"
         android:fontFamily="sans-serif-black"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Instrucciones"
-        android:textColor="@android:color/black"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:fontFamily="sans-serif-black">
 
-</TextView>
+    </TextView>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="-Se debe llenar la fila y columna con digitos del 1 a 9
-        -El numero introducido no debe repetirse ni en la fila ni en
-        la columna y tampoco en su cuadricula de 3x3\n\n"
-        android:textColor="@color/black"
+        android:text="- Se debe llenar la fila y columna con dígitos del 1 al 9
+        - El número introducido no debe repetirse ni en la fila ni en
+        la columna y tampoco en su cuadrícula de 3x3\n\n"
+        android:textColor="#FFFFFF"
         android:textSize="16sp">
 
     </TextView>
@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Dificultad de la partida"
-        android:textColor="@android:color/black"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:fontFamily="sans-serif-black">
 
@@ -50,6 +50,8 @@
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
+        android:background="#FFFFFF"
+
         android:layout_height="wrap_content"/>
     <Space
         android:layout_width="match_parent"
@@ -61,10 +63,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Jugar"
-        android:background="@color/btn"
+        android:background="#FFFFFF"
         android:textSize="20sp"
         android:fontFamily="sans-serif-black"
-        android:textColor="@color/white"/>
+        android:textColor="#000000"/>
 
 
     <Space
