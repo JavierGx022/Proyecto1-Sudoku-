@@ -55,13 +55,8 @@ class SodokuGame {
     fun Input(number: Int) {
         if (rowSelected == -1 || columnSelected == -1) return
 
-        val selectedCell = board.getCell(rowSelected, columnSelected)
-
-        // Permitir la entrada de números solo en celdas vacías o modificables
-        if (selectedCell.value == null || selectedCell.modifiable) {
-            selectedCell.value = number
-            cellLiveData.postValue(board.cells)
-        }
+        board.getCell(rowSelected, columnSelected).value = number
+        cellLiveData.postValue(board.cells)
     }
 
     fun updateSelected(row: Int, column: Int) {
