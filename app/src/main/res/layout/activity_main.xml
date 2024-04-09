@@ -31,13 +31,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="- Se debe llenar la fila y columna con dígitos del 1 al 9
-        - El número introducido no debe repetirse ni en la fila ni en
-        la columna y tampoco en su cuadrícula de 3x3\n\n"
+        android:text="1)Cada fila debe contener todos los dígitos del 1 al 9 sin repetición.\n2)Cada columna debe contener todos los dígitos del 1 al 9 sin repetición.\n3)Cada subcuadrícula de 3x3 debe contener todos los dígitos del 1 al 9 sin repetición."
         android:textColor="#FFFFFF"
         android:textSize="16sp">
 
     </TextView>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

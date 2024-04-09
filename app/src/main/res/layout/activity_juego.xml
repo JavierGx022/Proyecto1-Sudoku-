@@ -36,7 +36,7 @@
     <GridLayout
         android:id="@+id/keyBoard"
         android:layout_width="wrap_content"
-        android:layout_height="192dp"
+        android:layout_height="170dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="-1dp"
@@ -165,7 +165,7 @@
             android:layout_margin="5dp"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="15dp"
             android:text="9"
             android:textColor="#000000" />
 

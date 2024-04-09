@@ -4,5 +4,6 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 
 class saveStateGame : ViewModel(){
+
         val sodokuGame= SodokuGame()
     }

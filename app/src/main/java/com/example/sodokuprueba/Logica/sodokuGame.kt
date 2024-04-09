@@ -33,7 +33,7 @@ class SodokuGame {
         }
 
         // Establecer el número de celdas a eliminar del tablero
-        val numberOfCellsToRemove = 50 // Por ejemplo, puedes ajustar este número según lo desees
+        val numberOfCellsToRemove = 60
 
         // Eliminar algunos números para crear el tablero inicial del juego
         val random = Random
@@ -55,8 +55,13 @@ class SodokuGame {
     fun Input(number: Int) {
         if (rowSelected == -1 || columnSelected == -1) return
 
-        board.getCell(rowSelected, columnSelected).value = number
-        cellLiveData.postValue(board.cells)
+        val selectedCell = board.getCell(rowSelected, columnSelected)
+
+        // Permitir la entrada de números solo en celdas vacías o modificables
+        if (selectedCell.value == null || selectedCell.modifiable) {
+            selectedCell.value = number
+            cellLiveData.postValue(board.cells)
+        }
     }
 
     fun updateSelected(row: Int, column: Int) {
@@ -65,36 +70,19 @@ class SodokuGame {
         selectedCellData.postValue(Pair(row, column))
     }
 
-    fun isSolutionCorrect(): Boolean {
-        // Obtener la matriz de enteros del tablero actual
-        val currentBoard = Array(9) { row ->
-            IntArray(9) { col ->
-                val cellValue = board.getCell(row, col).value
-                cellValue ?: 0 // Si la celda está vacía, asignamos 0
-            }
-        }
+    fun isUserSolutionValid(): Boolean {
+        val userBoard = Array(9) { IntArray(9) }
 
-        val solver = SodokuSolver()
-
-        // Generar la solución real del tablero
-        val solution = solver.generateValidBoard()
-
-        // Verificar si la solución del usuario coincide con la solución real
+        // Copiar los valores del tablero actual del juego al arreglo temporal
         for (i in 0 until 9) {
             for (j in 0 until 9) {
-                val userCellValue = currentBoard[i][j]
-                val solutionCellValue = solution[i][j]
-
-                if (userCellValue != solutionCellValue) {
-                    return false
-                }
+                userBoard[i][j] = board.getCell(i, j).value ?: 0
             }
         }
-        return true
+
+        // Crear una instancia de SodokuSolver y verificar si el tablero del usuario es válido
+        val solver = SodokuSolver()
+        return solver.isValidSolution(userBoard)
     }
-
-
-
-
 
 }
