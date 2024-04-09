@@ -39,4 +39,40 @@ class SodokuSolver {
         }
         return true
     }
+
+    fun isValidSolution(board: Array<IntArray>): Boolean {
+        // Verificar filas y columnas
+        for (i in 0 until 9) {
+            val rowSet = HashSet<Int>()
+            val colSet = HashSet<Int>()
+
+            for (j in 0 until 9) {
+                if (board[i][j] !in 1..9 || board[j][i] !in 1..9 || rowSet.contains(board[i][j]) || colSet.contains(board[j][i])) {
+                    return false
+                }
+
+                rowSet.add(board[i][j])
+                colSet.add(board[j][i])
+            }
+        }
+
+        // Verificar subcuadros de 3x3
+        for (i in 0 until 9 step 3) {
+            for (j in 0 until 9 step 3) {
+                val subSquareSet = HashSet<Int>()
+
+                for (row in i until i + 3) {
+                    for (col in j until j + 3) {
+                        if (board[row][col] !in 1..9 || subSquareSet.contains(board[row][col])) {
+                            return false
+                        }
+
+                        subSquareSet.add(board[row][col])
+                    }
+                }
+            }
+        }
+
+        return true
+    }
 }

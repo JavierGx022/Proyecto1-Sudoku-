@@ -39,6 +39,7 @@ class juego : AppCompatActivity(), SodokuBoard.onTouchListener {
         viewModel.sodokuGame.cellLiveData.observe(this, Observer { updateCells(it) })
 
 
+
         val button1= findViewById<Button>(R.id.oneBtn)
         val button2= findViewById<Button>(R.id.twoBtn)
         val button3= findViewById<Button>(R.id.threeBtn)
@@ -59,6 +60,8 @@ class juego : AppCompatActivity(), SodokuBoard.onTouchListener {
                     if (sodokuBoard.validateInput(row, column, number)) {
                         // El número ingresado es válido, lo enviamos al juego
                         viewModel.sodokuGame.Input(number)
+                        // Reproducir sonido correspondiente al número ingresado
+                        playNumberSound(number)
                     } else {
                         val mediaPlayer = MediaPlayer.create(this@juego, R.raw.error)
                         mediaPlayer.start()
@@ -134,7 +137,7 @@ class juego : AppCompatActivity(), SodokuBoard.onTouchListener {
     }
 
     private fun win() {
-        val isSolutionCorrect = viewModel.sodokuGame.isSolutionCorrect()
+        val isSolutionCorrect = viewModel.sodokuGame.isUserSolutionValid()
 
         if (isSolutionCorrect) {
             val mediaPlayer = MediaPlayer.create(this@juego, R.raw.win)
@@ -156,6 +159,23 @@ class juego : AppCompatActivity(), SodokuBoard.onTouchListener {
             mediaPlayer.start()
             Toast.makeText(this, "Hubo un error, sigue intentando", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun playNumberSound(number: Int) {
+        val soundId = when (number) {
+            1 -> R.raw.uno
+            2 -> R.raw.dos
+            3 -> R.raw.tres
+            4 -> R.raw.cuatro
+            5 -> R.raw.cinco
+            6 -> R.raw.seis
+            7 -> R.raw.siete
+            8 -> R.raw.ocho
+            9 -> R.raw.nueve
+            else -> return
+        }
+        val mediaPlayer = MediaPlayer.create(this@juego, soundId)
+        mediaPlayer.start()
     }
 
 
