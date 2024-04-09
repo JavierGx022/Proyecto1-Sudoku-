@@ -70,6 +70,7 @@ class SodokuGame {
         selectedCellData.postValue(Pair(row, column))
     }
 
+
     fun isUserSolutionValid(): Boolean {
         val userBoard = Array(9) { IntArray(9) }
 
