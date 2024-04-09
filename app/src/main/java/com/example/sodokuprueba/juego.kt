@@ -119,19 +119,18 @@ class juego : AppCompatActivity(), SodokuBoard.onTouchListener {
                 mediaPlayer.start()
                 // Mostrar una alerta de tiempo agotado
                 val alertDialogBuilder = AlertDialog.Builder(this@juego)
-                alertDialogBuilder.setTitle("¡Tiempo agotado!")
-                alertDialogBuilder.setMessage("Has perdido la partida.")
-                alertDialogBuilder.setPositiveButton("Aceptar") { dialog, which ->
+                alertDialogBuilder.setTitle("¡TIEMPO AGOTADO!")
+                alertDialogBuilder.setMessage("HAS PERDIDO LA PARTIDA")
+                alertDialogBuilder.setPositiveButton("ACEPTAR") { dialog, which ->
                     // Redirigir al usuario a MainActivity
                     val intent = Intent(this@juego, MainActivity::class.java)
                     startActivity(intent)
-                    finish() // Cerrar la actividad actual
+                    finish()// Cerrar la actividad actual
                 }
                 alertDialogBuilder.setCancelable(false)
                 alertDialogBuilder.show()
             }
         }
-
         // Iniciar el temporizador
         countDownTimer.start()
     }
